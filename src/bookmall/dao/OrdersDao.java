@@ -20,11 +20,10 @@ import bookmall.vo.OrdersVo;
  */
 public class OrdersDao {
 
-
 	// orders의 정보를 insert하는 메소드
 	public int insert(OrdersVo vo) {
 		boolean result = false;
-		int last_insert_id=0;
+		int last_insert_id = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -46,7 +45,7 @@ public class OrdersDao {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-			last_insert_id = rs.getInt(1);
+				last_insert_id = rs.getInt(1);
 			}
 		} catch (SQLException e) {
 			System.out.println("error" + e);
@@ -114,7 +113,7 @@ public class OrdersDao {
 		try {
 			conn = getConnection();
 			// 1번주소 2번 맴버변수
-			String sql = "select order_no, price, destination, member_no, order_no_view, order_date from orders where member_no = ?";
+			String sql = "select o.order_no, o.price, o.destination, m.name, m.email, o.order_no_view, o.order_date from orders o, member m where o.member_no = ? and m.member_no = o.member_no";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, member_no);
 			rs = pstmt.executeQuery();
@@ -122,14 +121,18 @@ public class OrdersDao {
 				int order_no = rs.getInt(1);
 				int price = rs.getInt(2);
 				String destination = rs.getString(3);
-				String order_no_view = rs.getString(5);
-				String order_date = rs.getString(6);
+				String name = rs.getString(4);
+				String email = rs.getString(5);
+				String order_no_view = rs.getString(6);
+				String order_date = rs.getString(7);
 
 				OrdersVo vo = new OrdersVo();
 				vo.setOrder_no(order_no);
 				vo.setPrice(price);
 				vo.setDestination(destination);
 				vo.setMember_no(member_no);
+				vo.setName(name);
+				vo.setEmail(email);
 				vo.setOrder_no_view(order_no_view);
 				vo.setOrder_date(order_date);
 				result.add(vo);
@@ -207,7 +210,7 @@ public class OrdersDao {
 		Connection conn = null;
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			String url = "jdbc:mariadb://192.168.1.21:3307/bookmall";
+			String url = "jdbc:mariadb://14.32.18.223:3307/bookmall";
 			conn = DriverManager.getConnection(url, "bookmall", "bookmall");
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패" + e);

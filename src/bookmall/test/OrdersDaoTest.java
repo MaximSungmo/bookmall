@@ -14,10 +14,10 @@ public class OrdersDaoTest {
 		
 		System.out.println("----------OrdersDaoTest_insertTest----------");
 		// 배송지, 멤버번호, 북번호, 수량
-		insertTest("경기도 성남시 분당구", 2, 2, 3);
-		insertTest("경기도 성남시 분당구", 1, 3, 1);
-		insertTest("서울특별시 강남구", 2, 3, 3);
-		insertTest("서울특별시 강남구", 2, 1, 2);
+		insertTest("경기도 성남시 분당구", 2, 1000, 2, 3);
+		insertTest("경기도 성남시 분당구", 1, 5000, 3, 1);
+		insertTest("서울특별시 강남구", 2, 5000, 3, 3);
+		insertTest("서울특별시 강남구", 2, 7000, 1, 2);
 		System.out.println("--------------------------------------------");
 		
 		System.out.println("----------OrdersDaoTest_getListTest---------");
@@ -45,10 +45,11 @@ public class OrdersDaoTest {
 	}
 
 	
-	public static void insertTest(String destination, int member_no, int book_no, int quantity) {
+	public static void insertTest(String destination, int member_no, int price, int book_no, int quantity) {
 		OrdersVo vo = new OrdersVo();
 		vo.setDestination(destination);
 		vo.setMember_no(member_no);
+		vo.setPrice(price);
 		int last_insert_id = new OrdersDao().insert(vo);
 		
 		Order_bookVo order_book_vo = new Order_bookVo();

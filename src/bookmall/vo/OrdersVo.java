@@ -7,8 +7,24 @@ public class OrdersVo {
 	private int price;
 	private String destination;
 	private int member_no;
+	private String name;
+	private String email;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	private String order_no_view;
 	private String order_date;
+	
 	
 	public int getOrder_no() {
 		return order_no;
@@ -54,9 +70,9 @@ public class OrdersVo {
 	}
 	@Override
 	public String toString() {
-		return "ordersDaoTest [order_no=" + order_no + ", quantity=" + quantity + ", price=" + price + ", destination="
-				+ destination + ", member_no=" + member_no + ", order_no_view=" + order_no_view + ", order_date="
-				+ order_date + "]";
+		return "OrdersVo [order_no=" + order_no + ", quantity=" + quantity + ", price=" + price + ", destination="
+				+ destination + ", member_no=" + member_no + ", name=" + name + ", email=" + email + ", order_no_view="
+				+ order_no_view + ", order_date=" + order_date + "]";
 	}
 	
 	

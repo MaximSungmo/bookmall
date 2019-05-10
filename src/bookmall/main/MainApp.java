@@ -24,17 +24,26 @@ public class MainApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		addTestDB();
-		member_getList();
-		category_getList();
-		book_getList();
-		cart_getList(1);
-		cart_getList(2);
-		orders_getListTest(1);
-		orders_getListTest(2);
-		order_book_getList(1);
-		order_book_getList(2);
-
+		System.out.println("-----------모든 데이터가 데이터베이스안에 입력되었습니다.--------------");
 		
+		System.out.println("--------------------------멤버의 리스트.--------------------");
+		member_getList();
+		System.out.println("--------------------------카테고리의 리스트.--------------------");
+		category_getList();
+		System.out.println("--------------------------책의 리스트.--------------------");
+		book_getList();
+		System.out.println("--------------------------1번 회원의 카트 리스트.--------------------");
+		cart_getList(1);
+		System.out.println("--------------------------2번 회원의 카트 리스트.--------------------");
+		cart_getList(2);
+		System.out.println("--------------------------1번 회원의 주문 리스트.--------------------");
+		orders_getListTest(1);
+		System.out.println("--------------------------2번 회원의 주문 리스트.--------------------");
+		orders_getListTest(2);
+		System.out.println("--------------------------주문번호 1번의 주문 상세 리스트.--------------------");
+		order_book_getList(1);
+		System.out.println("--------------------------주문번호 2번의 주문 상세 리스트.--------------------");
+		order_book_getList(2);
 	}
 	
 	public static void addTestDB() {
@@ -42,34 +51,34 @@ public class MainApp {
 		CategoryDaoTest.insertTest("만화");
 		CategoryDaoTest.insertTest("과학");
 		CategoryDaoTest.insertTest("수필");
-		System.out.println("----------------------------------------------");
+		System.out.println("-----------------완료--------------------");
 		
 		System.out.println("----------MemberDaoTest_insertTest----------");
 		MemberDaoTest.insertTest("강아지", "010-5959-8282", "cute@pet.co.kr", "5959");
 		MemberDaoTest.insertTest("김성모", "010-2323-1111", "232e@pet.co.kr", "5959");
 		MemberDaoTest.insertTest("도레미", "010-4555-2222", "1111e@pet.co.kr", "5959");
-		System.out.println("--------------------------------------------");
+		System.out.println("-----------------완료--------------------");
 		
 		System.out.println("----------BookDaoTest_insertTest----------");
 		BookDaoTest.insertTest("과학책", 7000, 1);
 		BookDaoTest.insertTest("원피스", 1000, 2);
 		BookDaoTest.insertTest("가시고기", 5000, 3);
 		BookDaoTest.insertTest("너와나의연결고리", 12000, 3);
-		System.out.println("-------------------------------------------");
+		System.out.println("-----------------완료--------------------");
 		
 		System.out.println("----------CartDaoTest_insertTest-----------");
 		CartDaoTest.insertTest(1,1,5);
 		CartDaoTest.insertTest(2,1,5);
 		CartDaoTest.insertTest(1,2,3);
 		CartDaoTest.insertTest(3,2,2);
-		System.out.println("-------------------------------------------");
+		System.out.println("-----------------완료--------------------");
 		
 		System.out.println("----------OrdersDaoTest_insertTest----------");
-//		OrdersDaoTest.insertTest(1, 5000, "경기도 성남시 분당구", 2, 2, 3);
-//		OrdersDaoTest.insertTest(1, "경기도 성남시 분당구", 1, 3, 1);
-//		OrdersDaoTest.insertTest("서울특별시 강남구", 2, 3, 3);
-//		OrdersDaoTest.insertTest("서울특별시 강남구", 2, 1, 2);
-		System.out.println("--------------------------------------------");
+		OrdersDaoTest.insertTest("경기도 성남시 분당구", 1, 1000, 2, 1);
+		OrdersDaoTest.insertTest("경기도 성남시 분당구", 1, 5000, 3, 1);
+		OrdersDaoTest.insertTest("서울특별시 강남구", 2, 5000, 3, 3);
+		OrdersDaoTest.insertTest("서울특별시 강남구", 2, 7000, 1, 2);
+		System.out.println("-----------------완료--------------------");
 	}
 		
 	public static void member_getList() {

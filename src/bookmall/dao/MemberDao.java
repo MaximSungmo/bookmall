@@ -75,28 +75,27 @@ public class MemberDao {
 		return result;
 	}
 
-	// 사용자의 정보를 select하는 메소드 
+	// 사용자의 정보를 select하는 메소드
 	public List<MemberVo> getList() {
-		//vo 객체를 받을 리스트 생성
+		// vo 객체를 받을 리스트 생성
 		List<MemberVo> result = new ArrayList<MemberVo>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		try {
 			conn = getConnection();
 			String sql = "select member_no, name, phone_no, email, password from member m order by m.member_no asc;";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
-
 			// 리스트에 vo객체 조건에 맞는 지 확인 후 추가하기
 			while (rs.next()) {
 				int member_no = rs.getInt(1);
 				String name = rs.getString(2);
-				String phone_no =rs.getString(3);
-				String email =rs.getString(4);
-				String password =rs.getString(5);
+				String phone_no = rs.getString(3);
+				String email = rs.getString(4);
+				String password = rs.getString(5);
 
 				MemberVo vo = new MemberVo();
 				vo.setMember_no(member_no);
@@ -104,16 +103,22 @@ public class MemberDao {
 				vo.setPhone_no(phone_no);
 				vo.setEmail(email);
 				vo.setPassword(password);
-				
+
 				result.add(vo);
 			}
 		} catch (SQLException e) {
 			System.out.println("error" + e);
 		} finally {
 			try {
-				if (rs != null) { rs.close(); }
-				if (pstmt != null) { pstmt.close(); }
-				if (conn != null) { conn.close(); }
+				if (rs != null) {
+					rs.close();
+				}
+				if (pstmt != null) {
+					pstmt.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -121,13 +126,13 @@ public class MemberDao {
 		return result;
 	}
 
-	//중복 제거를 위한 getConnection 메소드 별도 정의
+	// 중복 제거를 위한 getConnection 메소드 별도 정의
 	private Connection getConnection() throws SQLException {
 
 		Connection conn = null;
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			String url = "jdbc:mariadb://192.168.1.21:3307/bookmall";
+			String url = "jdbc:mariadb://14.32.18.223:3307/bookmall";
 			conn = DriverManager.getConnection(url, "bookmall", "bookmall");
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패" + e);
