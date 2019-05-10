@@ -14,6 +14,8 @@ public class BookDaoTest {
 
 		System.out.println("----------BookDaoTest_insertTest----------");
 		insertTest("과학책", 7000, 1);
+		insertTest("원피스", 1000, 2);
+		insertTest("가시고기", 5000, 3);
 		System.out.println("-------------------------------------------");
 
 	}
@@ -22,7 +24,7 @@ public class BookDaoTest {
 		BookDao dao = new BookDao();
 		List<BookVo> list = dao.getList();
 		for (BookVo vo : list) {
-			System.out.println(vo);
+			System.out.println("책제목: "+vo.getTitle()+", 개당 가격: "+vo.getPrice());
 		}
 	}
 

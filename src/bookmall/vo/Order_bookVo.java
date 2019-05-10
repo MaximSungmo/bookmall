@@ -5,6 +5,23 @@ public class Order_bookVo {
 	private int book_no;
 	private int order_no;
 	private int quantity;
+	private int price;
+	private String title;
+	
+	
+	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public int getBook_no() {
 		return book_no;
 	}
@@ -25,7 +42,8 @@ public class Order_bookVo {
 	}
 	@Override
 	public String toString() {
-		return "order_bookVo [book_no=" + book_no + ", order_no=" + order_no + ", quantity=" + quantity + "]";
+		return "Order_bookVo [book_no=" + book_no + ", order_no=" + order_no + ", quantity=" + quantity + ", price="
+				+ price + ", title=" + title + "]";
 	}
 	
 	

@@ -16,11 +16,14 @@ public class CartDaoTest {
 		System.out.println("-------------------------------------------");
 		
 		System.out.println("----------CartDaoTest_insertTest-----------");
-		insertTest(1,3,5);
+		insertTest(1,1,5);
+		insertTest(2,1,5);
+		insertTest(1,2,3);
+		insertTest(3,2,2);
 		System.out.println("-------------------------------------------");
 		
 		System.out.println("----------CartDaoTest_getListTest----------");
-		getListTest(3);
+		getListTest(2);
 		System.out.println("-------------------------------------------");
 
 	}
@@ -32,7 +35,7 @@ public class CartDaoTest {
 		for (CartVo vo : list) {
 			System.out.println("책제목: "+ vo.getTitle()+" 수량: "+vo.getQuantity() + " 가격: "+vo.getPrice());
 			count = count + vo.getPrice();
-		}System.out.println("총 금액 : "+ count);
+		}System.out.println("카트 총 금액 : "+ count);
 	}
 	
 	

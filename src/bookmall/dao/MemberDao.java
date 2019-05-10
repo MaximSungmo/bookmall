@@ -100,7 +100,7 @@ public class MemberDao {
 
 				MemberVo vo = new MemberVo();
 				vo.setMember_no(member_no);
-				vo.setPhone_no(phone_no);
+				vo.setName(name);
 				vo.setPhone_no(phone_no);
 				vo.setEmail(email);
 				vo.setPassword(password);

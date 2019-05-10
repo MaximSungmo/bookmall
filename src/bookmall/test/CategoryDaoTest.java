@@ -13,6 +13,8 @@ public class CategoryDaoTest {
 		
 		System.out.println("----------CategoryDaoTest_insertTest----------");
 		insertTest("만화");
+		insertTest("과학");
+		insertTest("수필");
 		System.out.println("----------------------------------------------");
 		
 		System.out.println("----------CategoryDaoTest_getListTest----------");
@@ -25,7 +27,7 @@ public class CategoryDaoTest {
 		CategoryDao dao = new CategoryDao();
 		List<CategoryVo> list = dao.getList();
 		for (CategoryVo vo : list) {
-			System.out.println(vo);
+			System.out.println("카테고리명 : "+ vo.getCategory_name());
 		}
 	}
 

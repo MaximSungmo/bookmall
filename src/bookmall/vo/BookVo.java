@@ -7,6 +7,7 @@ public class BookVo {
 	private int price;
 	private int category_no;
 	
+	
 	public int getBook_no() {
 		return book_no;
 	}
@@ -33,7 +34,7 @@ public class BookVo {
 	}
 	@Override
 	public String toString() {
-		return "bookVo [book_no=" + book_no + ", title=" + title + ", price=" + price + ", category_no=" + category_no
+		return "BookVo [book_no=" + book_no + ", title=" + title + ", price=" + price + ", category_no=" + category_no
 				+ "]";
 	}
 	
